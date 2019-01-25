@@ -13,11 +13,10 @@ const cashflow = [
   }
 ]
 
-const trial_count = 100000;
-
 // Mathews S., Datar V., Johnson B. A practical method for valuing real options: The Boeing approach //Journal of Applied Corporate Finance. – 2007. – Т. 19. – №. 2. – С. 95-104
 
 test('DMM Boeing test-case, [Mathews, Datar, Johnson, 2007]', () => {
-  expect(dmm(trial_count, cashflow)).toBeGreaterThan(21);
-  expect(dmm(trial_count, cashflow)).toBeLessThan(24);
+  let result = dmm(cashflow);
+  expect(result).toBeGreaterThan(21);
+  expect(result).toBeLessThan(24);
 });

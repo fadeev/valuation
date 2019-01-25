@@ -11,7 +11,7 @@ const sample = (a, b, c) => {
   return b - Math.sqrt((1 - u) * (b - a) * (b - c));
 }
 
-export default (trial_count, cashflow, discount) => {
+export default (cashflow, discount, trial_count = 100000) => {
   return mean([...Array(trial_count).keys()].map(trial_index => {
     return cashflow.map(cf => {
       if (cf.optimistic && cf.default && cf.pessimistic) {

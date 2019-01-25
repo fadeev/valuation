@@ -1,9 +1,9 @@
 import npv from './npv.js'
 
-export default (cashflow) => {
+export default (cashflow, discount) => {
   const typeNpv = (cashflow, types) => {
     return types.reduce((object, type, i) => {
-      object[type] = cashflow.map(cf => npv(cf[type], cf.discount)).reduce((sum, val) => sum + val, 0)
+      object[type] = cashflow.map(cf => npv(cf[type], cf.discount || discount)).reduce((sum, val) => sum + val, 0)
       return object
     }, {})
   }
